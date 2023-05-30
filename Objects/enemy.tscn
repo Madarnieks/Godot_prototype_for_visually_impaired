@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgau5tiogm4jg"]
+
+[ext_resource type="Script" path="res://Objects/enemy.gd" id="1_6vmk6"]
+[ext_resource type="Texture2D" uid="uid://bfnfa4etwtyul" path="res://Sprites/Enemy.png" id="1_fllcb"]
+[ext_resource type="PackedScene" uid="uid://dfwgm0thafdqk" path="res://Objects/player_detection_zone.tscn" id="3_dda2a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8xqjm"]
+size = Vector2(44, 46)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x0lhn"]
+radius = 146.24
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 5
+script = ExtResource("1_6vmk6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fllcb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_8xqjm")
+
+[node name="PlayerDetectionZone" parent="." instance=ExtResource("3_dda2a")]
+
+[node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
+modulate = Color(1, 1, 1, 0.270588)
+shape = SubResource("CircleShape2D_x0lhn")
+
+[editable path="PlayerDetectionZone"]
