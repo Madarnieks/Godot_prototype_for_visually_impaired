@@ -80,7 +80,7 @@ sources/0 = SubResource("TileSetAtlasSource_j0ab4")
 y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("1_sflfp")]
-position = Vector2(160, 160)
+position = Vector2(232, 176)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
@@ -92,7 +92,7 @@ layer_0/tile_data = PackedInt32Array(524324, 0, 0, 589860, 0, 1, 655396, 0, 2, 7
 metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(160, 160)
+position = Vector2(232, 176)
 position_smoothing_enabled = true
 
 [node name="Enemy" parent="." instance=ExtResource("3_68cw5")]

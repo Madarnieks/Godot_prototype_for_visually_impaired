@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://djy1dl458lsk2"
+path="res://.godot/imported/Direction based.mp3-9870b4e70cff0d20b8df26b4dde24d6c.mp3str"
+
+[deps]
+
+source_file="res://TTS/Direction based.mp3"
+dest_files=["res://.godot/imported/Direction based.mp3-9870b4e70cff0d20b8df26b4dde24d6c.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

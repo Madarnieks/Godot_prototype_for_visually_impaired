@@ -1,0 +1,13 @@
+{
+      "id": "varSessionID",
+  	  "GameLevelSeed": "varLevelSeed",
+      "Method": "varUsedMethod",
+      "GameSession": "varGameLevel",
+      "DeviceName": "varUserDeviceName",
+      "Time": "varTimeForCompletion",
+      "CoinCount": "varTotalCoinCountToCollect",
+      "EnemyCount": "varTotalEnemyCountInLevel",
+      "ObstacleCount": "varTotalObstacleCountInLevel",
+      "LevelSizeWidth": "varLevelSizeWidth",
+      "LevelSizeHeight": "varLevelSizeHeight"
+}

@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3 uid="uid://bt6i3gn5uvaet"]
+
+[ext_resource type="Script" path="res://GameLevels/new_game_sub_menu.gd" id="1_lmum6"]
+
+[node name="NewGameSubMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lmum6")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="NavStick" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "NavStick"
+
+[node name="NavMenu" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "NavMenu"
+
+[node name="DirectionBased" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Direction based"
+
+[node name="SurroundSound" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Surround sound (no active method)"
+
+[node name="BackButton" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/NavStick" to="." method="_on_nav_stick_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/NavMenu" to="." method="_on_nav_menu_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/DirectionBased" to="." method="_on_direction_based_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SurroundSound" to="." method="_on_surround_sound_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
