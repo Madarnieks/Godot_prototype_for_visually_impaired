@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://bwe3nop08v4ou"]
+[gd_scene load_steps=6 format=3 uid="uid://bwe3nop08v4ou"]
 
 [ext_resource type="Script" path="res://GameLevels/settings_sub_menu.gd" id="1_o6l1w"]
+[ext_resource type="AudioStream" uid="uid://b5qbbm7unc0wv" path="res://TTS/Key bindings.mp3" id="2_ui7wi"]
+[ext_resource type="AudioStream" uid="uid://dy60m3kxl6rl4" path="res://TTS/Volume.mp3" id="3_o4c5r"]
+[ext_resource type="AudioStream" uid="uid://dyv4j7n58p8e" path="res://TTS/Back.mp3" id="4_t8jie"]
+[ext_resource type="Texture2D" uid="uid://bq7574o00i2qk" path="res://Sprites/Void.png" id="5_tkbn5"]
 
 [node name="SettingsSubMenu" type="Control"]
 layout_mode = 3
@@ -31,4 +35,23 @@ text = "Volume"
 layout_mode = 2
 text = "Back"
 
+[node name="SoundKeyBindings" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer"]
+stream = ExtResource("2_ui7wi")
+
+[node name="SoundVolume" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer"]
+stream = ExtResource("3_o4c5r")
+
+[node name="SoundBack" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer"]
+stream = ExtResource("4_t8jie")
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(991.5, 552.75)
+scale = Vector2(2.57848, 2.73855)
+texture = ExtResource("5_tkbn5")
+
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/KeyBindings" to="." method="_on_key_bindings_focus_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/KeyBindings" to="." method="_on_key_bindings_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_focus_entered"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_focus_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

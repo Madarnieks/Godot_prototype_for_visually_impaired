@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://crhocdwtfc55y"]
+[gd_scene load_steps=6 format=3 uid="uid://crhocdwtfc55y"]
 
 [ext_resource type="Script" path="res://GameLevels/main_menu.gd" id="1_k1t7y"]
+[ext_resource type="AudioStream" uid="uid://4ddpok7twby6" path="res://TTS/New Game.mp3" id="2_52khx"]
+[ext_resource type="AudioStream" uid="uid://6hh3jifltja7" path="res://TTS/Settings.mp3" id="3_70oqm"]
+[ext_resource type="AudioStream" uid="uid://b3aeaxnhhhqpi" path="res://TTS/Quit.mp3" id="4_44fup"]
+[ext_resource type="Texture2D" uid="uid://bq7574o00i2qk" path="res://Sprites/Void.png" id="5_4cuck"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -13,8 +17,8 @@ script = ExtResource("1_k1t7y")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1080.0
+offset_right = 780.0
+offset_bottom = 387.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -32,6 +36,23 @@ text = "Settings"
 layout_mode = 2
 text = "Quit"
 
+[node name="NewGameSound" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer"]
+stream = ExtResource("2_52khx")
+
+[node name="SettingsSound" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer"]
+stream = ExtResource("3_70oqm")
+
+[node name="QuitSound" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer"]
+stream = ExtResource("4_44fup")
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(991.5, 552.75)
+scale = Vector2(2.57848, 2.73855)
+texture = ExtResource("5_4cuck")
+
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/NewGame" to="." method="_on_new_game_focus_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/NewGame" to="." method="_on_new_game_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_focus_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_focus_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

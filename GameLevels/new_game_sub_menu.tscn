@@ -1,6 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://bt6i3gn5uvaet"]
+[gd_scene load_steps=8 format=3 uid="uid://bt6i3gn5uvaet"]
 
 [ext_resource type="Script" path="res://GameLevels/new_game_sub_menu.gd" id="1_lmum6"]
+[ext_resource type="AudioStream" uid="uid://dxltbpyq8y275" path="res://TTS/NavStick.mp3" id="2_0gc51"]
+[ext_resource type="AudioStream" uid="uid://fp03mwpx2f7u" path="res://TTS/NavMenu.mp3" id="3_fuy0g"]
+[ext_resource type="AudioStream" uid="uid://djy1dl458lsk2" path="res://TTS/Direction based.mp3" id="4_ed8gq"]
+[ext_resource type="AudioStream" uid="uid://7ap30e5vspdr" path="res://TTS/Surround sound no ac.mp3" id="5_wafcv"]
+[ext_resource type="AudioStream" uid="uid://dyv4j7n58p8e" path="res://TTS/Back.mp3" id="6_6l3ax"]
+[ext_resource type="Texture2D" uid="uid://bq7574o00i2qk" path="res://Sprites/Void.png" id="7_2onyu"]
 
 [node name="NewGameSubMenu" type="Control"]
 layout_mode = 3
@@ -39,8 +45,33 @@ text = "Surround sound (no active method)"
 layout_mode = 2
 text = "Back"
 
+[node name="SoundNavStick" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer"]
+stream = ExtResource("2_0gc51")
+
+[node name="SoundNavMenu" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer"]
+stream = ExtResource("3_fuy0g")
+
+[node name="SoundDirectionBased" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer"]
+stream = ExtResource("4_ed8gq")
+
+[node name="SoundSurroundSound" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer"]
+stream = ExtResource("5_wafcv")
+
+[node name="SoundBackButton" type="AudioStreamPlayer2D" parent="MarginContainer/VBoxContainer"]
+stream = ExtResource("6_6l3ax")
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/VBoxContainer"]
+position = Vector2(991.5, 552.75)
+scale = Vector2(2.57848, 2.73855)
+texture = ExtResource("7_2onyu")
+
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/NavStick" to="." method="_on_nav_stick_focus_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/NavStick" to="." method="_on_nav_stick_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/NavMenu" to="." method="_on_nav_menu_focus_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/NavMenu" to="." method="_on_nav_menu_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/DirectionBased" to="." method="_on_direction_based_focus_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/DirectionBased" to="." method="_on_direction_based_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/SurroundSound" to="." method="_on_surround_sound_focus_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/SurroundSound" to="." method="_on_surround_sound_pressed"]
+[connection signal="focus_entered" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_focus_entered"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

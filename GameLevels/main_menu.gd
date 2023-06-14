@@ -11,3 +11,15 @@ func _on_settings_pressed():
 
 func _on_quit_pressed():
 	get_tree().quit()
+
+
+func _on_new_game_focus_entered():
+	$MarginContainer/VBoxContainer/NewGameSound.play()
+
+
+func _on_settings_focus_entered():
+	$MarginContainer/VBoxContainer/SettingsSound.play()
+
+
+func _on_quit_focus_entered():
+	$MarginContainer/VBoxContainer/QuitSound.play()
