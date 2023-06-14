@@ -1,0 +1,1 @@
+PlaceEnemies(varEnemyCount)
