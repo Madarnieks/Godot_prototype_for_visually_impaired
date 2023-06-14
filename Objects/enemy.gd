@@ -12,4 +12,8 @@ func _physics_process(delta):
 	if collision_info:
 		var normal = collision_info.get_normal()
 		velocity = velocity.bounce(normal)
+	if $Timer.time_left <= 0:
+		$AudioStreamPlayer2D.pitch_scale = randf_range(0.7, 1.1)
+		$AudioStreamPlayer2D.play()
+		$Timer.start(randf_range(0.4, 1.8))
 

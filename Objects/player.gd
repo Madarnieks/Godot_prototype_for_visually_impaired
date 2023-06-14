@@ -22,6 +22,11 @@ func _physics_process(_delta): #underscore before the variable means it won't be
 	#print(velocity)
 	velocity = velocity.normalized() * move_speed
 	move_and_slide()
+	if velocity.length() > 0:
+		if $Timer.time_left <= 0:
+			$AudioStreamPlayer2D.pitch_scale = randf_range(0.7, 1.1)
+			$AudioStreamPlayer2D.play()
+			$Timer.start(0.4)
 	
 	#Calculate velocity
 	#velocity = input_direction * move_speed

@@ -1,14 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://df44r8c6nf7k0"]
+[gd_scene load_steps=5 format=3 uid="uid://df44r8c6nf7k0"]
 
 [ext_resource type="Texture2D" uid="uid://cr2npn5a0v8dp" path="res://Sprites/Coin.png" id="1_05bkt"]
+[ext_resource type="Script" path="res://Objects/Coin.gd" id="2_ira34"]
+[ext_resource type="AudioStream" uid="uid://ch2vpldx3ekb5" path="res://GameSoundEffects/coin_location.mp3" id="3_78t3l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnk7h"]
 size = Vector2(64, 64)
 
 [node name="Sprite2D" type="Sprite2D"]
 texture = ExtResource("1_05bkt")
+script = ExtResource("2_ira34")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_hnk7h")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_78t3l")
+volume_db = -11.243
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true

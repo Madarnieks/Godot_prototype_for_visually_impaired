@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgau5tiogm4jg"]
+[gd_scene load_steps=7 format=3 uid="uid://cgau5tiogm4jg"]
 
 [ext_resource type="Script" path="res://Objects/enemy.gd" id="1_6vmk6"]
 [ext_resource type="Texture2D" uid="uid://bfnfa4etwtyul" path="res://Sprites/Enemy.png" id="1_fllcb"]
 [ext_resource type="PackedScene" uid="uid://dfwgm0thafdqk" path="res://Objects/player_detection_zone.tscn" id="3_dda2a"]
+[ext_resource type="AudioStream" uid="uid://b48b0edhq7xig" path="res://GameSoundEffects/enemy_footstep.mp3" id="4_prexp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xqjm"]
 size = Vector2(44, 46)
@@ -26,5 +27,12 @@ shape = SubResource("RectangleShape2D_8xqjm")
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 modulate = Color(1, 1, 1, 0.270588)
 shape = SubResource("CircleShape2D_x0lhn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_prexp")
+volume_db = -4.684
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [editable path="PlayerDetectionZone"]
